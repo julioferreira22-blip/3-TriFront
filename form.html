@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexa Digital | Fale Conosco</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: #16213e;
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+      border: 1px solid #0f3460;
+    }
+
+    .empresa {
+      text-align: center;
+      color: #a0a0b0;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .empresa strong {
+      display: block;
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    h1 {
+      color: #e94560;
+      font-size: 28px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .subtitle {
+      color: #a0a0b0;
+      text-align: center;
+      margin-bottom: 32px;
+      font-size: 14px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      color: #e0e0e0;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid #0f3460;
+      border-radius: 8px;
+      background: #1a1a2e;
+      color: #fff;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #e94560;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #666;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .row .form-group {
+      flex: 1;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0a0b0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    select option {
+      background: #1a1a2e;
+      color: #fff;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .checkbox-group input {
+      width: 18px;
+      height: 18px;
+      accent-color: #e94560;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .checkbox-group label {
+      margin: 0;
+      color: #a0a0b0;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #e94560;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    button:hover {
+      background: #ff6b81;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    /* Mensagem de sucesso */
+    .sucesso {
+      display: none;
+      text-align: center;
+      padding: 25px 10px;
+      animation: aparecer 0.4s ease;
+    }
+
+    .sucesso .icone {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .sucesso h2 {
+      color: #4ade80;
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    .sucesso p {
+      color: #a0a0b0;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .sucesso button {
+      margin-top: 5px;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .row {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .container {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="empresa">
+      <strong>Nexa Digital</strong>
+      Criação de sites e soluções digitais para negócios.
+    </div>
+
+    <div id="formulario">
+      <h1>Fale Conosco</h1>
+
+      <p class="subtitle">
+        Preencha os campos abaixo e entraremos em contato em breve.
+      </p>
+
+      <form id="formContato">
+
+        <div class="row">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu nome"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="sobrenome">Sobrenome</label>
+            <input
+              type="text"
+              id="sobrenome"
+              name="sobrenome"
+              placeholder="Seu sobrenome"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="seuemail@exemplo.com"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input
+            type="tel"
+            id="telefone"
+            name="telefone"
+            placeholder="(00) 00000-0000"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="assunto">Assunto</label>
+          <select id="assunto" name="assunto" required>
+            <option value="" disabled selected>
+              Selecione uma opção
+            </option>
+            <option value="duvida">Dúvida</option>
+            <option value="sugestao">Sugestão</option>
+            <option value="reclamacao">Reclamação</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea
+            id="mensagem"
+            name="mensagem"
+            placeholder="Escreva sua mensagem aqui..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <input
+            type="checkbox"
+            id="termos"
+            name="termos"
+            required
+          >
+          <label for="termos">
+            Concordo com os termos de uso
+          </label>
+        </div>
+
+        <button type="submit">Enviar Mensagem</button>
+
+      </form>
+    </div>
+
+    <!-- Tela exibida após o envio -->
+    <div id="sucesso" class="sucesso" role="status" aria-live="polite">
+      <div class="icone">🎉</div>
+
+      <h2>Parabéns!</h2>
+
+      <p>
+        Sua mensagem foi enviada com sucesso!<br>
+        A equipe da <strong>Nexa Digital</strong> agradece
+        seu contato e retornará assim que possível.
+      </p>
+
+      <button type="button" id="novoEnvio">
+        Enviar outra mensagem
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('formContato');
+    const formulario = document.getElementById('formulario');
+    const sucesso = document.getElementById('sucesso');
+    const novoEnvio = document.getElementById('novoEnvio');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      formulario.style.display = 'none';
+      sucesso.style.display = 'block';
+    });
+
+    novoEnvio.addEventListener('click', function() {
+      form.reset();
+
+      sucesso.style.display = 'none';
+      formulario.style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>
